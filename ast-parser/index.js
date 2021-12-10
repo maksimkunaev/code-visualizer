@@ -11,20 +11,19 @@ const code = `function square(n) {
 
 const ast = parser.parse(code);
 
+// console.log(generate(ast, {}, code))
 
+traverse(ast, {
+  enter(path) {
+	// console.log(Object.keys(path.node.type))
+	console.log(path.node.type, path.node.name)
 
-console.log(generate(ast, {}, code))
-// traverse(ast, {
-//   enter(path) {
-// 	// console.log(Object.keys(path.node.type))
-// 	console.log(path.node.type, path.node.name)
+	console.log('\n')
 
-// 	console.log('\n')
+    // if (path.isIdentifier({ name: "n" })) {
+    //   path.node.name = "x";
+    // }
 
-//     // if (path.isIdentifier({ name: "n" })) {
-//     //   path.node.name = "x";
-//     // }
-
-//     return false;
-//   },
-// });
+    return false;
+  },
+});
