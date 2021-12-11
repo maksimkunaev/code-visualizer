@@ -1,12 +1,13 @@
 {
-  "name": "test-server",
+  "name": "code-visualizer",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "dev:server": "nodemon --max_old_space_size=2048 server.js",
     "prod:server": "NODE_HTTPS=true node --max_old_space_size=2048 server.js",
-    "prod:deploy": "NODE_HTTPS=true pm2 start server.js -- --max_old_space_size=2048"
+    "prod:deploy": "NODE_HTTPS=true pm2 start server.js -- --max_old_space_size=2048",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +28,10 @@
     "cross-env": "^6.0.3",
     "eslint": "^6.5.0",
     "nodemon": "^1.19.3",
-    "standard-version": "^7.0.0"
+    "standard-version": "^7.0.0",
+    "@babel/generator": "^7.16.0",
+    "@babel/traverse": "^7.16.3",
+    "acorn": "^8.6.0",
+    "recast": "^0.20.5"
   }
 }
