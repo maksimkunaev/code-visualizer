@@ -2,6 +2,6 @@
 
 ##To run in developmet mode
 
-`dev:server`
+`npm run dev:server`
 
 ##Open [http://localhost:3000](http://localhost:3000)
