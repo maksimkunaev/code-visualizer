@@ -1,5 +1,7 @@
 # code-visualizer
 
-To run 
+##To run in developmet mode
 
-`node source/main.js`
+`dev:server`
+
+##Open [http://localhost:3000](http://localhost:3000)
