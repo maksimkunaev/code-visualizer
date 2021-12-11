@@ -12,7 +12,7 @@ const http = require('http');
 const app = express();
 const get = require('lodash/get');
 const nodemailer = require("nodemailer");
-const { sendEmail } = require("./mail-sender");
+const { getParsedAST, getTraverse } = require("./ast-parser/index");
 
 const jsonParser = bodyParser.json();
 const PRODUCTION = process.env.NODE_HTTPS;
@@ -81,12 +81,14 @@ app.get('*', (req, res) => {
   res.sendFile(htmlPath);
 });
 
-app.post('/api/send-mail', jsonParser, async (req, response) => {
-  const { message } = req.body;
+app.post('/api/parse-ast', jsonParser, async (req, response) => {
+  const { sourceCode } = req.body;
 
     try {
-      await sendEmail(message);
-      return response.status(200).json({ message: 'success' });
+      const ast = await getParsedAST(sourceCode);
+      const traverse = await getTraverse(sourceCode);
+
+      return response.status(200).json({ message: 'success', data: {traverse, ast} });
     } catch (error) {
       console.log(error)
       return response.status(400).json({ message: error.message });

@@ -1,29 +1,31 @@
-// const fs = require("fs");
-// const fileName = "/Users/maxim/private/code-visualizer/source/main.js";
-
 const parser = require("@babel/parser");
 const traverse = require("@babel/traverse").default;
 const generate = require("@babel/generator").default;
 
-const code = `function square(n) {
-  return n * n;
-}`;
+const getParsedAST = code => {
+  return parser.parse(code);
+}
 
-const ast = parser.parse(code);
+function getTraverse(code) {
+  const traversedAst = [];
 
-// console.log(generate(ast, {}, code))
+  traverse(getParsedAST(code), {
+    enter(path) {
+      traversedAst.push(path.node)
 
-traverse(ast, {
-  enter(path) {
-	// console.log(Object.keys(path.node.type))
-	console.log(path.node.type, path.node.name)
+      // if (path.isIdentifier({ name: "n" })) {
+      //   path.node.name = "x";
+      // }
 
-	console.log('\n')
+      return false;
+    },
+  });
 
-    // if (path.isIdentifier({ name: "n" })) {
-    //   path.node.name = "x";
-    // }
+  return traversedAst;
+}
 
-    return false;
-  },
-});
+
+module.exports = {
+  getParsedAST,
+  getTraverse
+};

@@ -25,13 +25,13 @@
     "nodemailer": "^6.6.3"
   },
   "devDependencies": {
-    "cross-env": "^6.0.3",
-    "eslint": "^6.5.0",
-    "nodemon": "^1.19.3",
-    "standard-version": "^7.0.0",
     "@babel/generator": "^7.16.0",
     "@babel/traverse": "^7.16.3",
     "acorn": "^8.6.0",
-    "recast": "^0.20.5"
+    "cross-env": "^6.0.3",
+    "eslint": "^6.5.0",
+    "nodemon": "^1.19.3",
+    "recast": "^0.20.5",
+    "standard-version": "^7.0.0"
   }
 }

@@ -3,11 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing</title>
+  <title>VISUALIZER</title>
   <link rel="" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-  <button>submit</button>
+  <div>
+    <textarea class="source-code" cols=50 rows=10>
+function square(n) {
+  return n * n;
+}
+
+const textVar = "hello world"
+  </textarea>
+  </div>
+  <button class="submit-button">get ast tree</button>
+
+  <div>
+    <h5>AST</h5>
+    <div class="ast-tree"></div>
+  </div>
+
+  <div>
+    <h5>Traverse</h5>
+    <div class="traverse"></div>
+  </div>
   <script type="text/javascript" src="js/javascript.js"></script>
 </body>
 </html>
